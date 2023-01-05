@@ -27,7 +27,9 @@ public static WebDriverWait webDriverWait;
     public  static void lunchApplication()
     {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        webDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
 
         webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
